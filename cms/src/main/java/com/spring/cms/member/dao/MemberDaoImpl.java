@@ -14,7 +14,7 @@ public class MemberDaoImpl implements MemberDao {
 
 	@Override
 	public MemberDto selectLogin(MemberDto memberDto) throws Exception {
-		return sqlSession.selectOne("member.selectLogin" , memberDto.getMemberId());
+		return sqlSession.selectOne("member.selectLogin" , memberDto);
 	
 	}
 
