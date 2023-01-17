@@ -1,11 +1,10 @@
 package com.spring.cms.member.dao;
 
-import org.springframework.stereotype.Repository;
+import com.spring.cms.member.dto.MemberDto;
 
-@Repository
-public class MemberDao {
+public interface MemberDao {
+	
+	public MemberDto selectLogin(MemberDto memberDto) throws Exception;
+	
 
-	
-	
-	
 }
