@@ -8,11 +8,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
+@RequestMapping("/goods")
 public class GoodsController {
 	
 	@RequestMapping(value = "/shoppingCart", method=RequestMethod.GET)
 	public String shoppingCart() {
-		return "/shoppingCart";
+		return "/goods/shoppingCart";
 	}
 
 }

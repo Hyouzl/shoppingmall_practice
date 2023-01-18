@@ -9,14 +9,14 @@ public class MemberDto {
 	
 	private String memberId;
 	private String memberNm;
-	private String passWd;
+	private String passwd;
 	private String sex;
 	private String dateBirth;
 	private String hp;
 	private String smsstsYn;
 	private String email;
 	private String emailstsYn;
-	private String zipCode;
+	private String zipcode;
 	private String roadAddress;
 	private String jibunAddress;
 	private String namujiAddress;
@@ -35,11 +35,11 @@ public class MemberDto {
 	public void setMemberNm(String memberNm) {
 		this.memberNm = memberNm;
 	}
-	public String getPassWd() {
-		return passWd;
+	public String getPasswd() {
+		return passwd;
 	}
-	public void setPassWd(String passWd) {
-		this.passWd = passWd;
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
 	}
 	public String getSex() {
 		return sex;
@@ -77,11 +77,11 @@ public class MemberDto {
 	public void setEmailstsYn(String emailstsYn) {
 		this.emailstsYn = emailstsYn;
 	}
-	public String getZipCode() {
-		return zipCode;
+	public String getZipcode() {
+		return zipcode;
 	}
-	public void setZipCode(String zipCode) {
-		this.zipCode = zipCode;
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
 	}
 	public String getRoadAddress() {
 		return roadAddress;
@@ -115,14 +115,13 @@ public class MemberDto {
 	}
 	@Override
 	public String toString() {
-		return "MemberDto [memberId=" + memberId + ", memberNm=" + memberNm + ", passWd=" + passWd + ", sex=" + sex
+		return "MemberDto [memberId=" + memberId + ", memberNm=" + memberNm + ", passwd=" + passwd + ", sex=" + sex
 				+ ", dateBirth=" + dateBirth + ", hp=" + hp + ", smsstsYn=" + smsstsYn + ", email=" + email
-				+ ", emailstsYn=" + emailstsYn + ", zipCode=" + zipCode + ", roadAddress=" + roadAddress
+				+ ", emailstsYn=" + emailstsYn + ", zipcode=" + zipcode + ", roadAddress=" + roadAddress
 				+ ", jibunAddress=" + jibunAddress + ", namujiAddress=" + namujiAddress + ", point=" + point
 				+ ", joinDt=" + joinDt + "]";
 	}
 	
-	
-	
+
 
 }

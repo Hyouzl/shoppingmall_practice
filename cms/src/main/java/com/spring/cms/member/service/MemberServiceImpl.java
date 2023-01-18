@@ -2,10 +2,12 @@ package com.spring.cms.member.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import com.spring.cms.member.dao.MemberDao;
 import com.spring.cms.member.dto.MemberDto;
 
+@Service
 public class MemberServiceImpl implements MemberService{
 
 	@Autowired
@@ -21,7 +23,7 @@ public class MemberServiceImpl implements MemberService{
 		MemberDto checkExsistId = memberDao.selectLogin(memberDto);
 		
 		if(checkExsistId != null) {
-			if(bCryptPasswordEncoder.matches(memberDto.getPassWd(), checkExsistId.getPassWd())) {
+			if(bCryptPasswordEncoder.matches(memberDto.getPasswd(), checkExsistId.getPasswd())) {
 				return true;
 			}
 		}
@@ -32,7 +34,8 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public void addMember(MemberDto memberDto) throws Exception {
 		
-		memberDto.setPassWd(bCryptPasswordEncoder.encode(memberDto.getPassWd()));
+		if (memberDto.getEmailstsYn() == null)  memberDto.setEmailstsYn("N");
+		if (memberDto.getSmsstsYn() == null)    memberDto.setSmsstsYn("N");
 		memberDao.insertMember(memberDto);
 		
 	}

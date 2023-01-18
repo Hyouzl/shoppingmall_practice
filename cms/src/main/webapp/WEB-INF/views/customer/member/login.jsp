@@ -14,17 +14,17 @@
 
     <!-- Checkout Section Begin -->
     <section class="checkout spad">
-        <div class="container" aling>
+        <div class="container">
             <div class="checkout__form">
-                <form action="">
+                <form action="${contextPath }/customer/member/login" method="post" class="checkout__form">
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <h6 class="checkout__title">login</h6>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
-                                        <p>Fist Name<span>*</span></p>
-                                        <input type="text">
+                                        <p>Id<span>*</span></p>
+                                        <input type="text" name="memberId" id="memberId">
                                     </div>
                                 </div>
                             </div>
@@ -32,17 +32,15 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
-                                        <p>Phone<span>*</span></p>
-                                        <input type="text">
+                                        <p>Password<span>*</span></p>
+                                        <input type="password" name="passwd" id="passwd">
                                     </div>
                                 </div>
                             </div>
                             
                             
                             <button type="submit" class="site-btn">LOGIN</button>
-                       
-        
-                        </div>
+  
       
                         </div>
                     </div>

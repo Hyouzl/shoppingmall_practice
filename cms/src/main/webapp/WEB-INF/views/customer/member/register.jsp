@@ -20,9 +20,7 @@
 		   
 		    $.ajax({
 		       type : 'get',
-		       url  : '${contextPath }/customer/member/checkDuplicatedId',
-		       data : memberId,
-		       dataType : "json",
+		       url  : "${contextPath}/customer/member/checkDuplicatedId?memberId=" + memberId,
 		       success : function(ischeck){
 		          if (ischeck == "duplicate"){
 					  alert("사용할 수 있는 ID입니다.");
@@ -69,7 +67,7 @@
     <!-- Checkout Section Begin -->
     <section class="checkout spad">
         <div class="container">
-          <form action="${contextPath }/customer/member/register" method="post" onsubmit="return checkDuplicateId()" enctype="multipart/form-data" class="checkout__form">
+          <form action="${contextPath }/customer/member/register" method="post"  class="checkout__form">
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <h6 class="checkout__title">register</h6>
@@ -87,15 +85,22 @@
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>Password<span>*</span></p>
-                                        <input type="password" name="passwd" placeholder="비밀번호를 입력하세요.">
+                                        <input type="password" id="passwd" name="passwd" placeholder="비밀번호를 입력하세요.">
                                     </div>
+                                </div>
+                            </div>
+                            
+                             <div class="col-sm-12">
+                                <div class="checkout__input">
+                                    <p>Password check <span>*</span></p>
+                                    <input type="password" id="confirmPasswd" name="confirmPasswd"placeholder="비밀번호를 확인하세요.">
                                 </div>
                             </div>
                             
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
-                                        <p>name<span>*</span></p>
+                                        <p>Name<span>*</span></p>
                                         <input type="text" name="memberNm" maxlength="20">
                                     </div>
                                 </div> 
@@ -103,7 +108,7 @@
                             
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <div class="checkout__input">
+                                    <div >
                                         <p>sex<span>*</span></p>
                                         <input type="radio" name="sex" value="m" checked /> 남성&emsp;&emsp;&emsp;
 										<input type="radio" name="sex" value="w" />여성
@@ -130,12 +135,21 @@
                             </div>
                             
                                <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Email<span>*</span></p>
-                                        <input type="email" name="email" >  
-	                					<input type="checkbox" id="emailstsYn" name="emailstsYn" value="Y" checked/>
-                                    </div>
+	                                <div class="col-lg-6">
+	                                    <div class="checkout__input">
+	                                        <p>Email<span>*</span></p>
+	                                        <input type="email" name="email" >  
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <div class="row">
+	                                 <div class="checkout__input__checkbox">
+	                                    <label for="emailstsYn">
+	                                        수신 동의할꺼?
+	                                        <input type="checkbox" id="emailstsYn" name="emailstsYn" value="Y" checked>
+	                                        <span class="checkmark"></span>
+	                                    </label>
+	                                </div>
                                 </div>
                             </div>
                             
@@ -187,7 +201,7 @@
 												</c:choose>
 											</c:forEach>
 										</select> 일 &emsp;
-										<input type="hidden" name="birthDt">
+										<input type="hidden" name="dateBirth">
                                     </div>
                                 </div>
                             </div>
@@ -196,10 +210,8 @@
                        
         
                         </div>
-      
-                        </div>
                 </form>
-            </div>
+              </div>
     </section>
     <!-- Checkout Section End -->
 </body>

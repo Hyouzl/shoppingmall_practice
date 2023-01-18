@@ -5,9 +5,11 @@ package com.spring.cms.member.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,8 +25,11 @@ public class MemberController {
 	
 	
 	
+	@Autowired
 	private MemberService memberService;
 	
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView register() {
@@ -34,11 +39,12 @@ public class MemberController {
 	@RequestMapping(value = "/register" , method = RequestMethod.POST)
 	public ResponseEntity<Object> register(MemberDto memberDto, HttpServletRequest request) throws Exception {
 		
+		memberDto.setPasswd(bCryptPasswordEncoder.encode(memberDto.getPasswd()));
 		memberService.addMember(memberDto);
 		
 		String message  = "<script>";
 			   message += "alert('회원가입되었습니다.');";
-			   message += "location.href='" + request.getContextPath() + "/index';";
+			   message += "location.href='" + request.getContextPath() + "/';";
 			   message += "</script>";
 		
 		HttpHeaders responseHeaders = new HttpHeaders();
@@ -49,8 +55,8 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/checkDuplicatedId" , method = RequestMethod.GET)
-	public ResponseEntity<String> checkDuplicatedId(@RequestParam("memberId") String memberId) throws Exception{
-		return new ResponseEntity<String>(memberService.checkDuplicatedId(memberId), HttpStatus.OK);
+	public ResponseEntity<Object> checkDuplicatedId(@RequestParam("memberId") String memberId) throws Exception{
+		return new ResponseEntity<Object>(memberService.checkDuplicatedId(memberId), HttpStatus.OK);
 	}
  	
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -72,7 +78,7 @@ public class MemberController {
 			
 			message = "<script>";
 			message += "alert('로그인 되었습니다.');";
-			message += "location.href='" + request.getContextPath() + "/index';";
+			message += "location.href='" + request.getContextPath() + "/';";
 			message += "</script>";
 			
 		}
@@ -82,7 +88,7 @@ public class MemberController {
 			message = "<script>";
 			message += "alert('로그인에 실패하였습니다. 아이디와 비밀번호를 입력하세요. ');";
 			message += "history.go(-1);";
-			message = "</script>";
+			message += "</script>";
 		}
 		
 		
