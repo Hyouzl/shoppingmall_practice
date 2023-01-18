@@ -6,9 +6,9 @@
 
 <tiles-definitions>
     
-	<definition name="/a" extends="default">
-		<put-attribute name="body" value="/WEB-INF/views/qqq.jsp" />			
-		<put-attribute name="title" value="제목 내맘"/>											
+	<definition name="/customer/member/register" extends="default">
+		<put-attribute name="body" value="/WEB-INF/views/customer/member/register.jsp" />			
+		<put-attribute name="title" value="register"/>											
 	</definition>
 	<definition name="/customer/member/login" extends="default">
 		<put-attribute name="body" value="/WEB-INF/views/customer/member/login.jsp" />			

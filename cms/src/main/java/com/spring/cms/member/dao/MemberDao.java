@@ -4,7 +4,10 @@ import com.spring.cms.member.dto.MemberDto;
 
 public interface MemberDao {
 	
-	public MemberDto selectLogin(MemberDto memberDto) throws Exception;
 	
+	public MemberDto selectLogin(MemberDto memberDto) throws Exception;
+	public void insertMember(MemberDto memberDto) throws Exception;
+	public String duplicatedCheckId(String memberId) throws Exception;
 
+	
 }

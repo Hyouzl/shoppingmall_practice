@@ -13,6 +13,40 @@
 				MEMBER_ID = #{memberId}
 			
 	</select>
+	
+	<select id="selectDuplicatedId" parameterType="String" resultType="String"> 
+		SELECT 
+				MEMBER_ID
+		FROM
+				MEMBER
+		WHERE
+				MEMBER_ID = #{memberID}
+	</select>
+	
+	
+	
+	<insert id="insertMember" parameterType="MemberDto">
+		INSERT INTO
+				MEMBER
+		VALUES (
+				#{memberId},
+				#{passwd},
+				#{memberNm},
+				#{sex},
+				#{birthDt},
+				#{hp},
+				#{smsstsYn},
+				#{email},
+				#{emailstsYn},
+				#{zipcode},
+				#{roadAddress},
+				#{jibunAddress},
+				#{namujiAddress},
+				0,
+				NOW()
+		)
+
+	</insert>
 
 
 </mapper>

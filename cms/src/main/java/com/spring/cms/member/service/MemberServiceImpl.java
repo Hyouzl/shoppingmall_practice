@@ -13,9 +13,10 @@ public class MemberServiceImpl implements MemberService{
 	
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
-	
+
 	@Override
 	public boolean login(MemberDto memberDto) throws Exception {
+		
 		
 		MemberDto checkExsistId = memberDao.selectLogin(memberDto);
 		
@@ -27,6 +28,22 @@ public class MemberServiceImpl implements MemberService{
 		
 		return false;
 	}
+
+	@Override
+	public void addMember(MemberDto memberDto) throws Exception {
+		
+		memberDto.setPassWd(bCryptPasswordEncoder.encode(memberDto.getPassWd()));
+		memberDao.insertMember(memberDto);
+		
+	}
+
+	@Override
+	public String checkDuplicatedId(String memberId) throws Exception {
+		if (memberDao.duplicatedCheckId(memberId) == null) return "duplicate";
+		else return "notDuplicate";
+	}
+	
+
 	
 	
 
