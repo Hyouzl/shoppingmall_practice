@@ -10,11 +10,11 @@ public class GoodsDto {
 	
 	private String goodsCd;
 	private String goodsNm;
-	private String price;
-	private String discountRate;
-	private String stock;
+	private int price;
+	private float discountRate;
+	private int stock;
 	private String sort;
-	private String size;
+	private String goodsSize;
 	private String point;
 	private String part;
 	private String color;
@@ -33,16 +33,16 @@ public class GoodsDto {
 	public void setGoodsNm(String goodsNm) {
 		this.goodsNm = goodsNm;
 	}
-	public String getPrice() {
+	public int getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
-	public String getDiscountRate() {
+	public int getDiscountRate() {
 		return discountRate;
 	}
-	public void setDiscountRate(String discountRate) {
+	public void setDiscountRate(int discountRate) {
 		this.discountRate = discountRate;
 	}
 	public String getStock() {

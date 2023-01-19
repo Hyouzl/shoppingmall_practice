@@ -1,7 +1,5 @@
 package com.spring.cms.admin.member.dto;
 
-
-
 import java.util.Date;
 
 import org.springframework.stereotype.Component;

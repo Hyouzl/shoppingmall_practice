@@ -11,6 +11,7 @@
 	<typeAliases>
 		<typeAlias type="com.spring.cms.goods.dto.GoodsDto"     		alias="GoodsDto" />
 		<typeAlias type="com.spring.cms.member.dto.MemberDto"   		alias="MemberDto" />
+		<typeAlias type="com.spring.cms.admin.member.dto.AdminDto"   		alias="AdminDto" />
 	</typeAliases>
 	
 </configuration>
