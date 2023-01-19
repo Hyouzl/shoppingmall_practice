@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="admin.goods">
+
+	
+	<select id="selectListGoods" resultType="GoodsDto">
+		SELECT
+				*
+		FROM
+				GOODS
+	</select>
+
+
+	<insert id="insertGoods" parameterType="GoodsDto">
+		
+		INSERT INTO 
+			  	GOODS (
+					GOODS_NM,
+					PRICE,
+					DISCOUNT_RATE,
+					STOCK,
+					SORT,
+					GOODS_SIZE,
+					POINT,
+					PART,
+					COLOR,
+					INTRO,
+					GOODS_FILE_NAME,
+					ENROLL_DT
+				)
+		VALUES (
+					#{goodsNm},
+					#{price},
+					#{discountRate},
+					#{stock},
+					#{sort},
+					#{goodsSize},
+					#{point},
+					#{part},
+					#{color},
+					#{intro},
+					#{goodsFileName},
+					NOW()
+		)
+		
+	
+	</insert>
+
+
+
+
+</mapper>

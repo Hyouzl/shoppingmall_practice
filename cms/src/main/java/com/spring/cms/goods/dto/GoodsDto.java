@@ -11,16 +11,19 @@ public class GoodsDto {
 	private String goodsCd;
 	private String goodsNm;
 	private int price;
-	private float discountRate;
+	private int discountRate;
 	private int stock;
 	private String sort;
 	private String goodsSize;
-	private String point;
+	private int point;
 	private String part;
 	private String color;
 	private String intro;
 	private String goodsFileName;
 	private Date enrollDt;
+
+	
+	
 	public String getGoodsCd() {
 		return goodsCd;
 	}
@@ -45,10 +48,10 @@ public class GoodsDto {
 	public void setDiscountRate(int discountRate) {
 		this.discountRate = discountRate;
 	}
-	public String getStock() {
+	public int getStock() {
 		return stock;
 	}
-	public void setStock(String stock) {
+	public void setStock(int stock) {
 		this.stock = stock;
 	}
 	public String getSort() {
@@ -57,16 +60,16 @@ public class GoodsDto {
 	public void setSort(String sort) {
 		this.sort = sort;
 	}
-	public String getSize() {
-		return size;
+	public String getGoodsSize() {
+		return goodsSize;
 	}
-	public void setSize(String size) {
-		this.size = size;
+	public void setGoodsSize(String goodsSize) {
+		this.goodsSize = goodsSize;
 	}
-	public String getPoint() {
+	public int getPoint() {
 		return point;
 	}
-	public void setPoint(String point) {
+	public void setPoint(int point) {
 		this.point = point;
 	}
 	public String getPart() {
@@ -87,25 +90,24 @@ public class GoodsDto {
 	public void setIntro(String intro) {
 		this.intro = intro;
 	}
+
 	public String getGoodsFileName() {
 		return goodsFileName;
 	}
 	public void setGoodsFileName(String goodsFileName) {
 		this.goodsFileName = goodsFileName;
 	}
+	
 	public Date getEnrollDt() {
 		return enrollDt;
 	}
 	public void setEnrollDt(Date enrollDt) {
 		this.enrollDt = enrollDt;
 	}
-	@Override
-	public String toString() {
-		return "GoodsDto [goodsCd=" + goodsCd + ", goodsNm=" + goodsNm + ", price=" + price + ", discountRate="
-				+ discountRate + ", stock=" + stock + ", sort=" + sort + ", size=" + size + ", point=" + point
-				+ ", part=" + part + ", color=" + color + ", intro=" + intro + ", goodsFileName=" + goodsFileName
-				+ ", enrollDt=" + enrollDt + "]";
-	}
+	
+	
+	
+	
 	
 	
 	

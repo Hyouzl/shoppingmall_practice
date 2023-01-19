@@ -47,16 +47,16 @@
                             <div class="col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>색상 <span>*</span></p>
-                                    <input type="text" name="goodsNm" placeholder="상품명을 입력하세요.">
+                                    <input type="text" name="color" placeholder="색상을 입력하세요.">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>가격 <span>*</span></p>
-                                    <input type="text" name="goods" placeholder="가격을 입력하세요.">
+                                    <input type="text" name="price" placeholder="가격을 입력하세요.">
                                 </div>
                             </div>
- 
+ 							
 
                             <div class="col-sm-6">
                                 <div class="checkout__form__input">
@@ -64,6 +64,14 @@
                                     <input type="text" name="discountRate" placeholder="할인률을 입력하세요.">
                                 </div>
                             </div>
+                            
+                              <div class="col-sm-6">
+                                <div class="checkout__form__input">
+                                    <p>사이즈 <span>*</span></p>
+                                    <input type="text" name="goodsSize" placeholder="사이즈를 입력하세요.">
+                                </div>
+                            </div>
+                            
                             <div class="col-sm-12">
                                 <div class="checkout__form__input">
                                     <p>재고 <span>*</span></p>
@@ -98,7 +106,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="checkout__form__input">
-                                    <p>적립포인트(P) <span>*</span></p>
+                                   <p>적립포인트(P) <span>*</span></p>
                                     <input type="text" name="point" placeholder="적립 포인트(P)를 입력하세요.">
                                 </div>
                             </div>
@@ -117,10 +125,12 @@
                                 	<script>CKEDITOR.replace("intro");</script>
                                 </div>
                             </div>
+                           </div>
                         <br>
 		                <div align="right">
 		                	<button type="submit" class="site-btn"><span class="icon_plus"></span> 등록</button>
 		                </div>
+                    </div>
                     </div>
                 </form>
             </div>

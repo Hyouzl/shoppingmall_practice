@@ -1,8 +1,27 @@
 package com.spring.cms.admin.goods.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.spring.cms.goods.dto.GoodsDto;
 
 @Repository
 public class AdminGoodsDaoImpl implements AdminGoodsDao {
+
+	@Autowired
+	private SqlSession sqlSession;
+	
+	@Override
+	public void insertGoods(GoodsDto goodsDto) throws Exception {
+		sqlSession.insert("admin.goods.insertGoods", goodsDto);
+	}
+
+	@Override
+	public List<GoodsDto> selectGoodsList() throws Exception {
+		return sqlSession.selectList("admin.goods.selectListGoods");
+	}
 
 }

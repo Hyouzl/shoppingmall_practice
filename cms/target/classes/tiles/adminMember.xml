@@ -11,11 +11,7 @@
 		<put-attribute name="body" value="/WEB-INF/views/admin/member/adminLogin.jsp" />
 		<put-attribute name="title" value="adminLogin"/>
 	</definition>
-	
-	<definition name="/admin/goods/adminGoodsAdd" extends="default">
-		<put-attribute name="body" value="/WEB-INF/views/admin/goods/adminGoodsAdd.jsp" />
-		<put-attribute name="title" value="adminGoodsAdd"/>
-	</definition>
+
 
 </tiles-definitions>
   
