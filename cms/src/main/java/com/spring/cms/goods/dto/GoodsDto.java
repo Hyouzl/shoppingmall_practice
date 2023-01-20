@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class GoodsDto {
 	
-	private String goodsCd;
+	private int goodsCd;
 	private String goodsNm;
 	private int price;
 	private int discountRate;
@@ -24,10 +24,10 @@ public class GoodsDto {
 
 	
 	
-	public String getGoodsCd() {
+	public int getGoodsCd() {
 		return goodsCd;
 	}
-	public void setGoodsCd(String goodsCd) {
+	public void setGoodsCd(int goodsCd) {
 		this.goodsCd = goodsCd;
 	}
 	public String getGoodsNm() {

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.cms.goods.dto.GoodsDto;
 import com.spring.cms.goods.service.GoodsService;
 
 
@@ -25,11 +26,10 @@ public class GoodsController {
 		
 		ModelAndView mv = new ModelAndView();
 		
-		
-		
-		
+		GoodsDto goodsDto = goodsService.getGoodsDetail(goodsCd);
+	
 		mv.setViewName("/goods/goodsDetail");
-		
+
 		return mv;
 		
 	}

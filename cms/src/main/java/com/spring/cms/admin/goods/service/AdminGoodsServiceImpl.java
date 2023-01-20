@@ -21,7 +21,18 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 
 	@Override
 	public List<GoodsDto> getGoodsList() throws Exception {
-		return adminGoodsDao.selectGoodsList();
+		return adminGoodsDao.selectListGoods();
+	}
+
+	@Override
+	public void modifyGoods(GoodsDto goodsDto) throws Exception {
+		adminGoodsDao.updateGoods(goodsDto);		
+	}
+
+	@Override
+	public void removeGoods(GoodsDto goodsDto) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

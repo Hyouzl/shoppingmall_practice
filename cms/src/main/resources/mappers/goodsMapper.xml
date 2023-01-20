@@ -11,6 +11,17 @@
 		FROM
 				GOODS
 	</select>
+	
+	
+	<select id="selectOneGoods" parameterType="int" resultType="GoodsDto">
+		SELECT
+				*
+		FROM
+				GOODS
+		WHERE
+				GOODS_CD = #{goodsCd}
+	
+	</select> 
 
 
 </mapper>

@@ -80,8 +80,8 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="checkout__form__input">
-                                    <p>분야<span>*</span></p>
-                                    <select name="part">
+                                    <p>종류<span>*</span></p>
+                                    <select name="sort">
                                     	<option value="top">TOP&TEE</option>
                                     	<option value="blouse">BLOUSE</option>
                                     	<option value="sweater">SWEATER</option>
@@ -96,7 +96,7 @@
                             <div class="col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>분류 <span>*</span></p>
-                                    <select name="sort">
+                                    <select name="part">
                                     	<option value="general">일반</option>
                                     	<option value="new">신상</option>
                                     	<option value="best">베스트셀러</option>

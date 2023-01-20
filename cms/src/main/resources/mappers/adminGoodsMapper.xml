@@ -46,6 +46,52 @@
 		
 	
 	</insert>
+	
+	
+	<update id="updateGoods" parameterType="GoodsDto">
+	
+		UPDATE
+				GOODS
+		  <set> 
+	      <if test='goodsNm != null and goodsNm != ""'>
+	        GOODS_NM = #{goodsNm},
+	      </if>
+	      <if test='price != null and price != ""'>
+	        PRICE = #{price},
+	      </if>
+	      <if test='discountRate != null and discountRate != ""'>
+	        DISCOUNT_RATE = #{discountRate},
+	      </if>
+	      <if test='stock != null and stock != ""'>
+	        STOCK = #{stock},
+	      </if>
+	      <if test='sort != null and sort != ""'>
+	        SORT = #{sort},
+	      </if>
+	      <if test='point != null and point != ""'>
+	        POINT = #{point},
+	      </if>
+	      <if test='part != null and part != ""'>
+	        PART = #{part},
+	      </if>
+	      <if test='intro != null and intro != ""'>
+	        INTRO = #{intro},
+	      </if>
+	      <if test='goodsFileName != null and goodsFileName != ""'>
+	        GOODS_FILE_NAME = #{goodsFileName},
+	      </if>
+	      <if test='goodsSize != null and goodsSize != ""'>
+	      	GOODS_SIZE = #{goodsSize},
+	      </if>
+	      <if test='color != null and color != ""' >
+	      	COLOR = #{color}
+	      </if>
+	      
+	    </set>
+	    WHERE
+	    	GOODS_CD = #{goodsCd}
+	
+	</update>
 
 
 

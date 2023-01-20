@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.cms.admin.goods.service.AdminGoodsService;
 import com.spring.cms.goods.dto.GoodsDto;
+import com.spring.cms.goods.service.GoodsService;
 
 @Controller
 @RequestMapping("/admin/goods")
@@ -26,6 +27,9 @@ public class AdminGoodsController {
 	
 	@Autowired
 	private AdminGoodsService adminGoodsService;
+	
+	@Autowired
+	private GoodsService goodsService;
 
 	private final String CURR_IMAGE_REPO_PATH = "C:\\file_repo\\";					// window
 	//private final String CURR_IMAGE_REPO_PATH = "/var/lib/tomcat9/file_repo/";	// linux
@@ -97,12 +101,59 @@ public class AdminGoodsController {
 	public ModelAndView modifyGoods(@RequestParam("goodsCd") int goodsCd) throws Exception {
 		
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("admin/goods/adminGoodsModify");
-		//mv.addObject("goodsDto", adminGoodsService.)
+		mv.setViewName("/admin/goods/adminGoodsModify");
+		mv.addObject("goodsDto", goodsService.getGoodsDetail(goodsCd));
 		
 		return mv;
 	}
 	
+	@RequestMapping(value="/adminGoodsModify" , method=RequestMethod.POST)
 	
+		  public ResponseEntity<Object> adminGoodsModify(MultipartHttpServletRequest multipartRequest) throws Exception {
+		  
+		  multipartRequest.setCharacterEncoding("utf-8");
+		  
+		  GoodsDto goodsDto = new GoodsDto();
+		  goodsDto.setGoodsNm(multipartRequest.getParameter("goodsNm"));
+		  goodsDto.setPrice(Integer.parseInt(multipartRequest.getParameter("price")));
+		  goodsDto.setColor(multipartRequest.getParameter("color"));
+		  goodsDto.setGoodsSize(multipartRequest.getParameter("goodsSize"));
+		  goodsDto.setDiscountRate(Integer.parseInt(multipartRequest.getParameter("discountRate")));
+		  goodsDto.setPart(multipartRequest.getParameter("part"));
+		  goodsDto.setStock(Integer.parseInt(multipartRequest.getParameter("stock")));
+		  goodsDto.setPoint(Integer.parseInt(multipartRequest.getParameter("point")));
+		  goodsDto.setSort(multipartRequest.getParameter("sort"));
+		  goodsDto.setIntro(multipartRequest.getParameter("intro"));
+		  
+		  Iterator<String> file = multipartRequest.getFileNames();
+		  
+		  if(file.hasNext()) {
+			  
+			  MultipartFile uploadFile = multipartRequest.getFile(file.next());
+			  
+			  if(!uploadFile.getOriginalFilename().isEmpty()) {
+				  String uploadFileName = UUID.randomUUID() + "_" + uploadFile.getOriginalFilename();
+				  File f = new File(CURR_IMAGE_REPO_PATH + uploadFileName);
+				  uploadFile.transferTo(f);
+				  goodsDto.setGoodsFileName(uploadFileName);
+			  
+				  new File(CURR_IMAGE_REPO_PATH + goodsService.getGoodsDetail(Integer.parseInt(multipartRequest.getParameter("goodsCd"))).getGoodsFileName()).delete();
+			  }
+				  	  
+		  }
+		
+		  adminGoodsService.modifyGoods(goodsDto);
+		  
+		  String jsScript  = "<script>";
+		  jsScript += " alert('상품정보를 수정하였습니다.');";
+		  jsScript += " location.href='adminGoodsList';";
+		  jsScript += "</script>";
+		  
+		  HttpHeaders responseHeaders = new HttpHeaders();
+		  responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+		  
+		  return new ResponseEntity<Object>(jsScript,responseHeaders,HttpStatus.OK);
+	  }
+	 
 	
 }

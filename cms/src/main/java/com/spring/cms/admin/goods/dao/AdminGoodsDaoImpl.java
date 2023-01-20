@@ -20,8 +20,20 @@ public class AdminGoodsDaoImpl implements AdminGoodsDao {
 	}
 
 	@Override
-	public List<GoodsDto> selectGoodsList() throws Exception {
+	public List<GoodsDto> selectListGoods() throws Exception {
 		return sqlSession.selectList("admin.goods.selectListGoods");
+	}
+
+	@Override
+	public void updateGoods(GoodsDto goodsDto) throws Exception {
+		sqlSession.update("admin.goods.updateGoods" , goodsDto);
+		
+	}
+
+	@Override
+	public void deleteGoods(GoodsDto goodsDto) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

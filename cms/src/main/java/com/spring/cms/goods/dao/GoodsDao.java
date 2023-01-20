@@ -1,5 +1,8 @@
 package com.spring.cms.goods.dao;
 
-public class GoodsDao {
+import com.spring.cms.goods.dto.GoodsDto;
+public interface GoodsDao {
+
+	public GoodsDto selectOneGoods(int goodsCd) throws Exception;
 
 }

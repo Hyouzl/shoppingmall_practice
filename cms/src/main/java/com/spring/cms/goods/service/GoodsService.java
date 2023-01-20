@@ -5,5 +5,8 @@ import java.util.List;
 import com.spring.cms.goods.dto.GoodsDto;
 
 public interface GoodsService {
+	
+	public GoodsDto getGoodsDetail(int goodsCd) throws Exception;
+	
  
 }

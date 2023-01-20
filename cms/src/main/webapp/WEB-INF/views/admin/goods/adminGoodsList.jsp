@@ -1,8 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
-<c:set var="contextPath"  value="${pageContext.request.contextPath}" />
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html >
 <html>
 <head>
@@ -28,7 +27,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
-                        <a href="${contextPat }/"><i class="fa fa-home"></i> Admin</a>
+                        <a href="${contextPath }/"><i class="fa fa-home"></i> Admin</a>
                         <span>Goods List</span>
                     </div>
                 </div>
