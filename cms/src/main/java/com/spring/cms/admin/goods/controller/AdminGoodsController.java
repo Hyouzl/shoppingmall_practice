@@ -1,8 +1,11 @@
 package com.spring.cms.admin.goods.controller;
 
 import java.io.File;
+import java.io.OutputStream;
 import java.util.Iterator;
 import java.util.UUID;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -19,6 +22,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.spring.cms.admin.goods.service.AdminGoodsService;
 import com.spring.cms.goods.dto.GoodsDto;
 import com.spring.cms.goods.service.GoodsService;
+
+import net.coobird.thumbnailator.Thumbnails;
 
 @Controller
 @RequestMapping("/admin/goods")
@@ -107,13 +112,14 @@ public class AdminGoodsController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/adminGoodsModify" , method=RequestMethod.POST)
-	
-		  public ResponseEntity<Object> adminGoodsModify(MultipartHttpServletRequest multipartRequest) throws Exception {
+		
+		@RequestMapping(value="/adminGoodsModify" , method=RequestMethod.POST)
+		public ResponseEntity<Object> adminGoodsModify(MultipartHttpServletRequest multipartRequest) throws Exception {
 		  
 		  multipartRequest.setCharacterEncoding("utf-8");
 		  
 		  GoodsDto goodsDto = new GoodsDto();
+		  goodsDto.setGoodsCd(Integer.parseInt(multipartRequest.getParameter("goodsCd")));
 		  goodsDto.setGoodsNm(multipartRequest.getParameter("goodsNm"));
 		  goodsDto.setPrice(Integer.parseInt(multipartRequest.getParameter("price")));
 		  goodsDto.setColor(multipartRequest.getParameter("color"));
@@ -145,15 +151,47 @@ public class AdminGoodsController {
 		  adminGoodsService.modifyGoods(goodsDto);
 		  
 		  String jsScript  = "<script>";
-		  jsScript += " alert('상품정보를 수정하였습니다.');";
-		  jsScript += " location.href='adminGoodsList';";
-		  jsScript += "</script>";
+		  		 jsScript += " alert('상품정보를 수정하였습니다.');";
+		         jsScript += " location.href='adminGoodsList';";
+		         jsScript += "</script>";
 		  
 		  HttpHeaders responseHeaders = new HttpHeaders();
 		  responseHeaders.add("Content-Type", "text/html; charset=utf-8");
 		  
 		  return new ResponseEntity<Object>(jsScript,responseHeaders,HttpStatus.OK);
 	  }
-	 
+	
+	@RequestMapping(value = "/adminGoodsRemove" , method = RequestMethod.GET)
+	public ResponseEntity<Object> adminGoodsRemove(@RequestParam("goodsCd") int goodsCd) throws Exception {
+		
+		new File(CURR_IMAGE_REPO_PATH + goodsService.getGoodsDetail(goodsCd).getGoodsFileName()).delete();
+		
+		adminGoodsService.removeGoods(goodsCd);
+		
+		String jsScript= "<script>";
+			   jsScript += " alert('등록된 상품을 삭제하였습니다.');";
+			   jsScript +=" location.href='adminGoodsList';";
+			   jsScript +="</script>";
+		
+		HttpHeaders responseHeaders = new HttpHeaders();
+		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+				
+		return new ResponseEntity<Object>(jsScript, responseHeaders, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/thumbnails" , method=RequestMethod.GET)
+	public void thumbnails(@RequestParam("goodsFileName") String goodsFileName , HttpServletResponse response) throws Exception {
+	
+		OutputStream out = response.getOutputStream();
+		
+		File image = new File(CURR_IMAGE_REPO_PATH + goodsFileName);
+		if (image.exists()) { 
+			Thumbnails.of(image).size(121,154).outputFormat("png").toOutputStream(out);
+		}
+		byte[] buffer = new byte[1024 * 8];
+		out.write(buffer);
+		out.close();
+		
+	}
 	
 }

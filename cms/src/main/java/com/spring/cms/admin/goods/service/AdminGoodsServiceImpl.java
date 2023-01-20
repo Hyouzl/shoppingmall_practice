@@ -30,8 +30,8 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 	}
 
 	@Override
-	public void removeGoods(GoodsDto goodsDto) throws Exception {
-		// TODO Auto-generated method stub
+	public void removeGoods(int goodsCd) throws Exception {
+		adminGoodsDao.deleteGoods(goodsCd);
 		
 	}
 

@@ -10,5 +10,5 @@ public interface AdminGoodsDao {
 	public void insertGoods(GoodsDto goodsDto) throws Exception;
 	public List<GoodsDto> selectListGoods() throws Exception;
 	public void updateGoods(GoodsDto goodsDto) throws Exception;
-	public void deleteGoods(GoodsDto goodsDto) throws Exception;
+	public void deleteGoods(int goodsCd) throws Exception;
 }

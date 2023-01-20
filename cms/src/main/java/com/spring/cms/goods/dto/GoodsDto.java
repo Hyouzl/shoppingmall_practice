@@ -22,8 +22,6 @@ public class GoodsDto {
 	private String goodsFileName;
 	private Date enrollDt;
 
-	
-	
 	public int getGoodsCd() {
 		return goodsCd;
 	}
@@ -105,11 +103,13 @@ public class GoodsDto {
 		this.enrollDt = enrollDt;
 	}
 	
-	
-	
-	
-	
-	
+	@Override
+	public String toString() {
+		return "GoodsDto [goodsCd=" + goodsCd + ", goodsNm=" + goodsNm + ", price=" + price + ", discountRate="
+				+ discountRate + ", stock=" + stock + ", sort=" + sort + ", goodsSize=" + goodsSize + ", point=" + point
+				+ ", part=" + part + ", color=" + color + ", intro=" + intro + ", goodsFileName=" + goodsFileName
+				+ ", enrollDt=" + enrollDt + "]";
+	}
 	
 
 }

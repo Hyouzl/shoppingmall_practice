@@ -37,14 +37,14 @@
     <!-- Breadcrumb End -->
 
     <!-- Shop Cart Section Begin -->
-    <section class="shop-cart spad">
+    <section class="blog spad">
         <div class="container">
             <div class="row">	
                 <div class="col-lg-12">
 	            	<div class="cart__btn update__btn" align="right">
 						<a href="javascript:gerateGoodsExcelExport();"><span class="icon_folder_download"></span>Excel</a>
 					</div>
-                    <div class="shop__cart__table">
+                    <div class="blog__item">
 
                             	<c:choose>
                             		<c:when test="${empty goodsList}">
@@ -59,12 +59,13 @@
                     							<div class="blog__item">
                        								<div class="blog__item__pic set-bg" data-setbg="img/blog/blog-7.jpg"></div>
                         							<div class="blog__item__text">
-                            							<span><img src="img/icon/calendar.png" alt=""> <fmt:formatDate value="${goodsDto.enrollDt }" pattern="yyyy-MM-dd"/></span>
+                            							<span><img src="${contextPath }/admin/goods/thumbnails?goodsFileName=${goodsDto.goodsFileName}" alt=""> <br></span>
                             							<div class="cart__product__item__title">
 			                                            	<h6><a href="${contextPath }/goods/goodsDetail?goodsCd=${goodsDto.goodsCd}">${goodsDto.goodsNm }</a></h6>
-			                                        		<p>${goodsDto.part} | ${goodsDto.stock} 개 | <fmt:formatNumber value="${goodsDto.price }"/>원</p>
+			                                        		<p>${goodsDto.sort} | ${goodsDto.stock} 개 | <fmt:formatNumber value="${goodsDto.price }"/>원</p>
 			                                				<a href="${contextPath }/admin/goods/adminGoodsModify?goodsCd=${goodsDto.goodsCd}"><span class="icon_pencil-edit"></span></a>
 			                                				<a href="javascript:adminGoodsRemove(${goodsDto.goodsCd });"><span class="icon_trash_alt"></span></a>
+			                                				<fmt:formatDate value="${goodsDto.enrollDt }" pattern="yyyy-MM-dd"/>
 			          
 			                                        	</div>
 			        

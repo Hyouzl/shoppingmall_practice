@@ -92,6 +92,10 @@
 	    	GOODS_CD = #{goodsCd}
 	
 	</update>
+	
+	<delete id="deleteGoods" parameterType="int">
+		DELETE FROM GOODS WHERE GOODS_CD = #{goodsCd}
+	</delete>
 
 
 

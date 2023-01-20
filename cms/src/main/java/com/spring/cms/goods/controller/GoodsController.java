@@ -1,5 +1,8 @@
 package com.spring.cms.goods.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +32,8 @@ public class GoodsController {
 		GoodsDto goodsDto = goodsService.getGoodsDetail(goodsCd);
 	
 		mv.setViewName("/goods/goodsDetail");
-
+		mv.addObject("goodsDto", goodsDto);
+		
 		return mv;
 		
 	}

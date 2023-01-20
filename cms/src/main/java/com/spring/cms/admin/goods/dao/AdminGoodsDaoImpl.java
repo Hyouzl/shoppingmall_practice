@@ -31,8 +31,8 @@ public class AdminGoodsDaoImpl implements AdminGoodsDao {
 	}
 
 	@Override
-	public void deleteGoods(GoodsDto goodsDto) throws Exception {
-		// TODO Auto-generated method stub
+	public void deleteGoods(int goodsCd) throws Exception {
+		sqlSession.delete("admin.goods.deleteGoods", goodsCd);
 		
 	}
 

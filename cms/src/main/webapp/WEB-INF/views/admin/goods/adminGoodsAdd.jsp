@@ -60,8 +60,8 @@
 
                             <div class="col-sm-6">
                                 <div class="checkout__form__input">
-                                    <p>할인률 <span>*</span></p>
-                                    <input type="text" name="discountRate" placeholder="할인률을 입력하세요.">
+                                    <p>할인율 <span>*</span></p>
+                                    <input type="text" name="discountRate" placeholder="할인율을 입력하세요.">
                                 </div>
                             </div>
                             
