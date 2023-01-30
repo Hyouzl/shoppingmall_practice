@@ -61,16 +61,18 @@ public class AdminGoodsController {
 		multipartRequest.setCharacterEncoding("utf-8");
 	
 		
+		
 		GoodsDto goodsDto = new GoodsDto();
 		goodsDto.setGoodsNm(multipartRequest.getParameter("goodsNm"));
 		goodsDto.setPrice(Integer.parseInt(multipartRequest.getParameter("price")));
 		goodsDto.setDiscountRate(Integer.parseInt(multipartRequest.getParameter("discountRate")));
 		goodsDto.setStock(Integer.parseInt(multipartRequest.getParameter("stock")));
+		goodsDto.setColor(multipartRequest.getParameter("color"));
 		goodsDto.setSort(multipartRequest.getParameter("sort"));
 		goodsDto.setGoodsSize(multipartRequest.getParameter("goodsSize"));
 		goodsDto.setPoint(Integer.parseInt(multipartRequest.getParameter("point")));
 		goodsDto.setPart(multipartRequest.getParameter("part"));
-		goodsDto.setColor(multipartRequest.getParameter("color"));
+	
 		goodsDto.setIntro(multipartRequest.getParameter("intro"));
 		
 		Iterator<String> file = multipartRequest.getFileNames();

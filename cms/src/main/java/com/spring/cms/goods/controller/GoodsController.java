@@ -1,10 +1,8 @@
 package com.spring.cms.goods.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,9 +36,17 @@ public class GoodsController {
 		
 	}
 	
-	@RequestMapping(value = "/shoppingCart", method=RequestMethod.GET)
-	public String shoppingCart() {
-		return "/goods/shoppingCart";
+	@RequestMapping(value = "/goodsList" , method = RequestMethod.GET)
+	public ModelAndView goodsList(@ModelAttribute GoodsDto goodsDto) throws Exception {
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/goods/goodsList");
+		mv.addObject("goodsList", goodsService.getGoodsList(goodsDto));
+		
+		return mv;
 	}
+	
+	
+
 
 }

@@ -9,9 +9,11 @@
 	</settings>
 	
 	<typeAliases>
-		<typeAlias type="com.spring.cms.goods.dto.GoodsDto"     		alias="GoodsDto" />
-		<typeAlias type="com.spring.cms.member.dto.MemberDto"   		alias="MemberDto" />
+		<typeAlias type="com.spring.cms.goods.dto.GoodsDto"     			alias="GoodsDto" />
+		<typeAlias type="com.spring.cms.member.dto.MemberDto"   			alias="MemberDto" />
 		<typeAlias type="com.spring.cms.admin.member.dto.AdminDto"   		alias="AdminDto" />
+		<typeAlias type="com.spring.cms.myPage.dto.CartDto"   				alias="CartDto" />
+		<typeAlias type="com.spring.cms.order.dto.OrderDto"   				alias="OrderDto" />	
 	</typeAliases>
 	
 </configuration>

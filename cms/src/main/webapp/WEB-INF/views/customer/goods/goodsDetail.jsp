@@ -17,22 +17,7 @@
 			location.href = "${contextPath }/customer/member/login";
 		}
 		else {
-			
-			$.ajax({
-				url : "${contextPath }/goods/shoppingCart",
-				method : "get",
-				data : {"goodsCd" : goodsCd , "cartGoodsQty" : $("#orderGoodsQty").val()},
-				success : function(result) {
-					
-					if (result == "duple") {
-						alert("이미 추가된 품목입니다.");
-					}
-					else {
-						alert("장바구니에 추가되었습니다.");
-					}
-					
-				}
-			})
+			location.href="${contextPath }/myPage/addCart";
 			
 		}
 	}
@@ -127,7 +112,7 @@
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-8">
                         <div class="product__details__text">
-                            <h4>Hooded thermal anorak</h4>
+                            <h4>${goodsDto.goodsNm }</h4>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -136,15 +121,16 @@
                                 <i class="fa fa-star-o"></i>
                                 <span> - 5 Reviews</span>
                             </div>
-                            <h3>$270.00 <span>70.00</span></h3>
-                            <p>Coat with quilted lining and an adjustable hood. Featuring long sleeves with adjustable
-                                cuff tabs, adjustable asymmetric hem with elastic side tabs and a front zip fastening
-                            with placket.</p>
+                            <h3>${goodsDto.price - (goodsDto.price * goodsDto.discountRate / 100)} 원<span>${goodsDto.price }</span></h3>
+                            <p> ${goodsDto.intro }</p>
                             <div class="product__details__option">
                                 <div class="product__details__option__size">
                                     <span>Size:</span>
                                     <select>
-                                  
+                                    <c:forTokens var="size" items="${goodsDto.goodsSize }" delims=",">
+                                          <option value="<c:out value="${size }"/>">
+                                          </option>
+									</c:forTokens>
                                     </select>
                                 </div>
                                 <div class="product__details__option__color">
@@ -169,7 +155,7 @@
                             <div class="product__details__cart__option">
                                 <div class="quantity">
                                     <div class="pro-qty">
-                                        <input type="text" value="1">
+                                        <input type="text" value="1" name="orderGoodsQty" id="orderGoodsQty">
                                     </div>
                                 </div>
                                 <a href="javascript:processToCart(${goodsDto.goodsCd });" class="primary-btn">add to cart</a>

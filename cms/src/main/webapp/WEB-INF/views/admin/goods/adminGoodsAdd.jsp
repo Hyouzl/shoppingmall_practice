@@ -68,7 +68,7 @@
                               <div class="col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>사이즈 <span>*</span></p>
-                                    <input type="text" name="goodsSize" placeholder="사이즈를 입력하세요.">
+                                 	<input type="text" name="goodsSize" placeholder="사이즈를 입력하세요.">
                                 </div>
                             </div>
                             

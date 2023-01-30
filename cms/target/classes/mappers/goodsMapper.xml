@@ -5,11 +5,16 @@
 
 <mapper namespace="goods">
 
-	<select id="selectListGoods" resultType="GoodsDto">
+	<select id="selectListGoods" parameterType="GoodsDto" resultType="GoodsDto">
 		SELECT
 				*
 		FROM
 				GOODS
+		<where>
+			<if test='!sort.equals("all")'>
+				SORT = #{sort}
+			</if>
+		</where>
 	</select>
 	
 	

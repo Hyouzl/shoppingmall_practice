@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="order">
+
+	<select id="selectOneOrderer" resultType="MemberDto" parameterType="String">
+		SELECT
+				*
+		FROM
+				MEMBER
+		WHERE
+				MEMBER_ID = #{memberId}
+	</select>
+	
+	<select id="selectOneCartGoods" resultType="GoodsDto" parameterType="int">
+		SELECT
+				*
+		FROM
+				GOODS
+		WHERE
+				GOODS_CD = #{goodsCd}
+	</select>
+	
+	<insert id="insertOrder" parameterType="OrderDto">
+		INSERT INTO
+				'ORDER' (
+				 	MEMBER_ID,
+				    GOODS_CD,
+					ORDER_GOODS_QTY,
+					PAYMENT_AMT,
+				    ORDERER_NM,
+				    ORDERER_HP,
+				    RECEIVER_NM,
+					RECEIVER_HP,
+					ZIPCODE,
+					ROAD_ADDRESS,
+					JIBUN_ADDRESS,
+					NAMUJI_ADDRESS,
+					DELIVERY_METHOD,
+					DELIVERY_MESSAGE,
+				    DELIVERY_STATUS,
+					GIFT_WRAPPING,
+					PAY_METHOD,
+					PAY_ORDERER_HP,
+					CARD_COMPANY_NM,
+				    CARD_PAY_MONTH,
+					PAY_ORDER_TIME	
+				)
+				VALUES (
+					#{memberId},
+				    #{goodsCd},
+				    #{orderGoodsQty},
+				    #{paymentAmt},
+				    #{ordererNm},
+	                #{ordererHp},
+				    #{receiverNm},
+				    #{receiverHp},
+				    #{zipcode},
+				    #{roadAddress},
+				    #{jibunAddress},
+				    #{namujiAddress},
+	                #{deliveryMethod},
+	                #{deliveryMessage},
+	                '배송준비중',
+	                #{giftWrapping},
+	                #{payMethod},
+	                #{payOrdererHp},
+	                #{cardCompanyNm},
+	                #{cardPayMonth},
+	                NOW()
+				)	
+	
+	</insert>
+
+
+
+
+</mapper>

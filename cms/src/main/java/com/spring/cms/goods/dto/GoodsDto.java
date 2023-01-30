@@ -1,6 +1,7 @@
 package com.spring.cms.goods.dto;
 
 
+import java.util.Arrays;
 import java.util.Date;
 
 import org.springframework.stereotype.Component;
@@ -21,7 +22,6 @@ public class GoodsDto {
 	private String intro;
 	private String goodsFileName;
 	private Date enrollDt;
-
 	public int getGoodsCd() {
 		return goodsCd;
 	}
@@ -88,21 +88,18 @@ public class GoodsDto {
 	public void setIntro(String intro) {
 		this.intro = intro;
 	}
-
 	public String getGoodsFileName() {
 		return goodsFileName;
 	}
 	public void setGoodsFileName(String goodsFileName) {
 		this.goodsFileName = goodsFileName;
 	}
-	
 	public Date getEnrollDt() {
 		return enrollDt;
 	}
 	public void setEnrollDt(Date enrollDt) {
 		this.enrollDt = enrollDt;
 	}
-	
 	@Override
 	public String toString() {
 		return "GoodsDto [goodsCd=" + goodsCd + ", goodsNm=" + goodsNm + ", price=" + price + ", discountRate="
@@ -110,6 +107,10 @@ public class GoodsDto {
 				+ ", part=" + part + ", color=" + color + ", intro=" + intro + ", goodsFileName=" + goodsFileName
 				+ ", enrollDt=" + enrollDt + "]";
 	}
+	
+	
+
+	
 	
 
 }

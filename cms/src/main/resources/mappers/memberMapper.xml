@@ -47,6 +47,25 @@
 		)
 
 	</insert>
+	
+	
+	<select id="selectMyCartCnt" resultType="int">
+		SELECT
+				COUNT(*)
+		FROM
+				CART
+		WHERE
+				MEMBER_ID = #{memberId}
+	</select>
+	
+	<select id="selectMyOrderCnt" resultType="int">
+		SELECT
+				COUNT(*)
+		FROM
+				ORDER
+		WHERE
+				MEMBER_ID = #{memberId}
+	</select>
 
 
 </mapper>

@@ -70,6 +70,7 @@
 			<version>${org.slf4j-version}</version>
 			<scope>runtime</scope>
 		</dependency>
+		
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -93,10 +94,6 @@
 				</exclusion>
 			</exclusions>
 			<scope>runtime</scope>
-			
-			
-			
-			
 		</dependency>
 
 		<!-- @Inject -->
@@ -150,7 +147,7 @@
 		<dependency>							
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
-		    <version>8.0.15</version>
+		    <version>8.0.29</version>
 		</dependency>
 		
 		<dependency>

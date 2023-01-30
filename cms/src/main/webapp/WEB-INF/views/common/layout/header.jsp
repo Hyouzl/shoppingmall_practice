@@ -48,12 +48,25 @@
                     <nav class="header__menu mobile-menu">
                         <ul>
                             <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="./shop.html">Shop</a></li>
+                            <li><a href="./shop.html">Shop</a>
+                            	<ul class="dropdown">
+                            		<li><a href="${contextPath }/goods/goodsList?sort=top">TOP&TEE</a></li>
+                            		<li><a href="${contextPath }/goods/goodsList?sort=blouse">BLOUSE</a></li>
+                            		<li><a href="${contextPath }/goods/goodsList?sort=sweater">SWEATER</a></li>
+                            		<li><a href="${contextPath }/goods/goodsList?sort=dress">DRESS</a></li>
+                            		<li><a href="${contextPath }/goods/goodsList?sort=skirts">SKIRTS</a></li>
+                            		<li><a href="${contextPath }/goods/goodsList?sort=pants">PANTS</a></li>
+                            		<li><a href="${contextPath }/goods/goodsList?sort=shoes">SHOES</a></li>                            	
+                            		<li><a href="${contextPath }/goods/goodsList?sort=acc">ACC</a></li>                            	
+                            	</ul>
+                            
+                            
+                            </li>
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     <li><a href="./about.html">About Us</a></li>
                                     <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shopping-cart.html">Shopping Cart</a></li>
+                                    <li><a href="${contextPath }/myPage/myCartList">Shopping Cart</a></li>
                                     <li><a href="./checkout.html">Check Out</a></li>
                                     <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul>

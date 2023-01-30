@@ -45,6 +45,16 @@ public class MemberServiceImpl implements MemberService{
 		if (memberDao.duplicatedCheckId(memberId) == null) return "duplicate";
 		else return "notDuplicate";
 	}
+
+	@Override
+	public int getMyCartCnt(String memberId) throws Exception {
+		return memberDao.selectMyCartCnt(memberId);
+	}
+
+	@Override
+	public int getMyOrderCnt(String memberId) throws Exception {
+		return memberDao.selectMyOrderCnt(memberId);
+	}
 	
 
 	
